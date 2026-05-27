@@ -1,9 +1,19 @@
 <?php
-include 'includes/header.php';
-?>
 
-<h1>holaaaaaa</h1>
+include 'clases/Database.php';
 
-<?php
-include 'includes/footer.php';
+$database = new Database();
+
+$conexion = $database->conectar();
+
+if($conexion){
+
+    echo "Conexión exitosa";
+
+}else{
+
+    echo "Error";
+
+}
+
 ?>
