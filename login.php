@@ -14,6 +14,19 @@ if ($_POST) {
         $_POST['email'],
         $_POST['password']
     );
-}
 
+    if ($login) {
+        header("location: index.php");
+    }
+    else {
+        echo "Datos incorrectos";
+    }
+}
 ?>
+
+<form method="POST">
+    <input type="email" name="email>
+    <input type="password" name= "password">
+    <button type="submit"> Ingresar </button>
+
+</form>
