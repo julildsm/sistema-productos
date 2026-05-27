@@ -8,13 +8,16 @@ class usuario{
         $this->conn = $db;
     }
 
-    public function registrar ($nom, $email, $contra){
+    public function registrar ($nombre, $email, $password){
         $passwordhash = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "insert into" . $this->tabla . " (nom, email, contra) VALUES (:nom, :email, :contra)";
+        $sql = "insert into" . $this->tabla . " (nombre, email, password) VALUES (:nombre, :email, :password)";
 
         $stmt = $this->conn->prepare($sql);
+        $stmt->bindparam(":nombre", $nombre);
         $stmt->bindparam(":email", $email);
+        $stmt->bindparam(":password", $password);
+        
         $stmt->execute();
 
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
