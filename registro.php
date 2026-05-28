@@ -4,7 +4,7 @@ include 'clases/Database.php';
 include 'clases/Usuario.php';
 
 $database = new Database();
-$db = $database->conectar();
+$database = $database->conectar();
 
 $usuario = new Usuario($db);
 

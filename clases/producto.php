@@ -1,11 +1,11 @@
 <?php
 
 class producto {
-    private $conn;
+    private $conexion;
     private $tabla = "productos";
 
     public function __construct($database){
-        $this->conn = $database;
+        $this->conexion = $database;
     }
 
     public function crear ($nombre, $descripcion, $precio, $stock){
@@ -14,7 +14,7 @@ class producto {
             VALUES
             (:nombre, :descripcion, :precio, :stock)";
 
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->conexion->prepare($sql);
 
         $stmt->bindParam(":nombre", nombre);
         $stmt->bindParam(":descripcion", descripcion);
@@ -27,7 +27,7 @@ class producto {
     public function listar(){
         $sql = "SELECT * FROM productos";
 
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->conexion->prepare($sql);
         $stmt->execute();
 
         return $stmt;

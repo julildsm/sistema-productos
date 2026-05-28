@@ -1,11 +1,11 @@
 <?php
 
 class usuario{
-    private $conn;
+    private $conexion;
     private $tabla = "usuarios";
 
     public function __construct($database) {
-        $this->conn = $database;
+        $this->conexion = $database;
     }
 
    public function registrar($nombre, $email, $password) {

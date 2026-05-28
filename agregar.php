@@ -5,9 +5,9 @@ require_once "clases/database.php";
 require_once "clases/producto.php";
 
 $database = new database();
-$conn = $database->conectar();
+$conexion = $database->conectar();
 
-$producto = new producto($conn);
+$producto = new producto($conexion);
 
 if ($_POST) {
     $producto->crear(

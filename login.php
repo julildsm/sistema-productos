@@ -4,11 +4,11 @@ session_start();
 require_once "clases/database.php";
 require_once "clases/usuario.php";
 
-$db = new database();
-$conn = $db->conectar();
+$database = new database();
+$conexion = $database->conectar();
 $mensaje= "";
 
-$usuario = new usuario($conn);
+$usuario = new usuario($conexion);
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $login = $usuario->login(
