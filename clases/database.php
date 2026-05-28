@@ -1,8 +1,9 @@
 <?php
+
 class Database {
 
     private $host = "localhost";
-    private $db = "sistema";
+    private $dbname = "sistema";
     private $user = "root";
     private $pass = "";
 
@@ -11,7 +12,7 @@ class Database {
         try {
 
             $conexion = new PDO(
-                "mysql:host=".$this->host.";dbname=".$this->db,
+                "mysql:host=".$this->host.";dbname=".$this->dbname,
                 $this->user,
                 $this->pass
             );
@@ -20,10 +21,7 @@ class Database {
 
         } catch(PDOException $e) {
 
-            echo "Error de conexión";
-
+            echo "Error de conexión: " . $e->getMessage();
         }
     }
 }
-
-?>

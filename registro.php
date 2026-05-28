@@ -6,7 +6,7 @@ include 'clases/Usuario.php';
 $database = new Database();
 $database = $database->conectar();
 
-$usuario = new Usuario($db);
+$usuario = new Usuario($database);
 
 $mensaje = "";
 
@@ -21,6 +21,7 @@ if($_POST){
     if($resultado){
 
         $mensaje = "Usuario registrado";
+        header("Location: login.php");
 
     }else{
 
