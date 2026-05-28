@@ -1,10 +1,10 @@
 <?php
 
-include 'clases/Database.php';
-include 'clases/Usuario.php';
+include 'clases/database.php';
+include 'clases/usuario.php';
 
 $database = new Database();
-$database = $database->conectar();
+$db = $database->conectar();
 
 $usuario = new Usuario($database);
 
