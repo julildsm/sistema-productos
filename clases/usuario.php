@@ -28,25 +28,25 @@ class usuario{
     }
      public function login($email, $password) {
 
-    $sql = "SELECT * FROM usuarios
-            WHERE email = '$email'";
+        $sql = "SELECT * FROM usuarios
+                WHERE email = '$email'";
 
-    $resultado = $this->conn->query($sql);
+        $resultado = $this->conn->query($sql);
 
-    $usuario = $resultado->fetch(PDO::FETCH_ASSOC);
+        $usuario = $resultado->fetch(PDO::FETCH_ASSOC);
 
-    if($usuario){
+        if($usuario){
 
-        if(password_verify($password, $usuario['password'])){
+            if(password_verify($password, $usuario['password'])){
 
-            return true;
+                return true;
+
+            }
 
         }
 
+        return false;
     }
-
-    return false;
-}
 }
 
 ?>
