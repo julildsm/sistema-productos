@@ -4,9 +4,9 @@ session_start();
 require_once "clases/database.php";
 require_once "clases/usuario.php";
 
-$database = new database();
+$database = new Database();
+
 $conexion = $database->conectar();
-$mensaje= "";
 
 $usuario = new usuario($conexion);
 

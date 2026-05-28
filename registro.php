@@ -4,9 +4,10 @@ include 'clases/database.php';
 include 'clases/usuario.php';
 
 $database = new Database();
-$db = $database->conectar();
 
-$usuario = new Usuario($database);
+$conexion = $database->conectar();
+
+$usuario = new usuario($conexion);
 
 $mensaje = "";
 
@@ -19,9 +20,8 @@ if($_POST){
     $resultado = $usuario->registrar($nombre, $email, $password);
 
     if($resultado){
-
-        $mensaje = "Usuario registrado";
         header("Location: login.php");
+        exit();
 
     }else{
 
