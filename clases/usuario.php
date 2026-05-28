@@ -4,8 +4,8 @@ class usuario{
     private $conn;
     private $tabla = "usuarios";
 
-    public function __construct($db) {
-        $this->conn = $db;
+    public function __construct($database) {
+        $this->conn = $database;
     }
 
    public function registrar($nombre, $email, $password) {
