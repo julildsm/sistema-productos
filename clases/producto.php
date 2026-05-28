@@ -4,22 +4,22 @@ class producto {
     private $conn;
     private $tabla = "productos";
 
-    public function __construct($database){
-        $this->conn = $database;
+    public function __construct($db){
+        $this->conn = $db;
     }
 
     public function crear ($nombre, $descripcion, $precio, $stock){
-        $sql = "INSER TO productos 
+        $sql = "INSERT INTO productos 
             (nombre, descripcion, precio, stock)
             VALUES
             (:nombre, :descripcion, :precio, :stock)";
 
         $stmt = $this->conn->prepare($sql);
 
-        $stmt->bindParam(":nombre", nombre);
-        $stmt->bindParam(":descripcion", descripcion);
-        $stmt->bindParam(":precio", precio);
-        $stmt->bindParam(":stock", stock);
+        $stmt->bindParam(":nombre", $nombre);
+        $stmt->bindParam(":descripcion", $descripcion);
+        $stmt->bindParam(":precio", $precio);
+        $stmt->bindParam(":stock", $stock);
 
         return $stmt->execute();
     }
