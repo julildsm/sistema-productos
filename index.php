@@ -1,6 +1,8 @@
 <?php
+require_once "includes/auth.php";
 
-include 'clases/Database.php';
+require_once "clases/database.php";
+require_once "clases/producto.php";
 
 $database = new Database();
 

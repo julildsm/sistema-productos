@@ -4,8 +4,8 @@ class producto {
     private $conn;
     private $tabla = "productos";
 
-    public function __construct($db){
-        $this->conn = $db;
+    public function __construct($database){
+        $this->conn = $database;
     }
 
     public function crear ($nombre, $descripcion, $precio, $stock){
