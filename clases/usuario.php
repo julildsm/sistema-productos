@@ -17,7 +17,7 @@ class usuario{
                 VALUES
                 (:nombre, :email, :password)";
 
-        $stmt = $this->conexion->prepare($sql);
+        $stmt = $this->conn->prepare($sql);
 
         $stmt->bindParam(":nombre", $nombre);
         $stmt->bindParam(":email", $email);
@@ -31,7 +31,7 @@ class usuario{
         $sql = "SELECT * FROM usuarios
                 WHERE email = '$email'";
 
-        $resultado = $this->conexion->query($sql);
+        $resultado = $this->conn->query($sql);
 
         $usuario = $resultado->fetch(PDO::FETCH_ASSOC);
 
