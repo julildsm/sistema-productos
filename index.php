@@ -8,7 +8,7 @@ $database = new Database();
 $conexion = $database->conectar();
 
 $producto = new producto($conexion);
-$producto = $producto->listar();
+$productos = $producto->listar();
 
 if($conexion){
 
@@ -34,6 +34,7 @@ if($conexion){
     <th>Nombre</th>
     <th>Precio</th>
     <th>Stock</th>
+    <th>Acciones</th>
 </tr>
 
 <?php while($row = $productos->fetch(PDO::FETCH_ASSOC)) : ?>
@@ -47,6 +48,12 @@ if($conexion){
     <td><?= $row['precio'] ?></td>
 
     <td><?= $row['stock'] ?></td>
+
+    <td>
+        <a href="editar.php?id=<?= $row['id'] ?>">Editar</a>
+
+        <a href="eliminar.php?id=<?= $row['id'] ?>">Eliminar</a>
+    </td>
 
 </tr>
 
