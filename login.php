@@ -10,6 +10,8 @@ $conexion = $database->conectar();
 
 $usuario = new usuario($conexion);
 
+$mensaje = "";
+
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $login = $usuario->login(
         $_POST['email'],
@@ -18,13 +20,16 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
     if ($login) {
         header("location: index.php");
+        exit();
     }
     else {
         echo "Datos incorrectos";
     }
 }
-include 'includes/header.php'
+include 'includes/header.php';
+
 ?>
+
 <h2>Iniciar Sesión</h2>
 <?php
 if($mensaje){
