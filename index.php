@@ -53,8 +53,8 @@ include 'includes/header.php';
            Editar
         </a>
         <a href="eliminar.php?id=<?= $row['id'] ?>"
-           class="btn btn-danger">
-           Eliminar
+            onclick="return confirm('¿Seguro que desea eliminar este producto?')">
+            Eliminar
         </a>
 
     </td>
