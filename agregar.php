@@ -11,11 +11,11 @@ $producto = new producto($conexion);
 $mensaje="";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    var_dump($_POST);
+   
     
    $resultado = $producto->crear(
         $_POST['nombre'],
-        $_POST['descripion'],
+        $_POST['descripcion'],
         $_POST['precio'],
         $_POST['stock']
     );
@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mesnaje="Error al agregar";
    }
 }
+include 'includes/header.php';
 ?>
 <h2>Agregar Producto</h2>
 <?php
