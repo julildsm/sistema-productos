@@ -58,6 +58,14 @@ class producto {
         $stmt->bindParam(":stock", $stock);
         return $stmt->execute();
     }
+    public function eliminar($id){
+    $sql = "DELETE FROM productos
+            WHERE id = :id";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(":id", $id);
+    return $stmt->execute();
+
+}
 }
 
 ?>
