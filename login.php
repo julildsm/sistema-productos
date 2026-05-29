@@ -19,6 +19,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     );
 
     if ($login) {
+        $_SESSION['usuario'] = $_POST['email'];
         header("location: index.php");
         exit();
     }
