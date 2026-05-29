@@ -37,7 +37,7 @@ if($conexion){
     <th>Acciones</th>
 </tr>
 
-<?php while($row = $productos->fetch(PDO::FETCH_ASSOC)) : ?>
+<?php while($row = $producto->fetch(PDO::FETCH_ASSOC)) : ?>
 
 <tr>
 

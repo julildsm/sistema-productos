@@ -8,6 +8,7 @@ $database = new database();
 $conexion = $database->conectar();
 
 $producto = new producto($conexion);
+$mensaje="";
 
 if ($_POST) {
     $producto->crear(
@@ -16,21 +17,48 @@ if ($_POST) {
         $_POST['precio'],
         $_POST['stock']
     );
-
-    header("location: index.php");
+   if ($resultado){
+      header("location: index.php");
+   }else{
+    $mesnaje="Error al agregar";
+   }
 }
 ?>
-
+<h2>Agregar Producto</h2>
+<?php
+if($mensaje){
+    echo "<div class='alert alert-info'>$mensaje</div>";
+}
+?>
 <form method="POST">
-
-    <input type="text" name="nombre">
-
-    <textarea name="descripcion"></textarea>
-
-    <input type="number" step="0.01" name="precio">
-
-    <input type="number" name="stock">
-
-    <button type="submit">Guardar</button>
-
+    <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text"
+               name="nombre"
+               class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Descripción</label>
+        <input type="text"
+               name="descripcion"
+               class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Precio</label>
+        <input type="number"
+               name="precio"
+               class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Stock</label>
+        <input type="number"
+               name="stock"
+               class="form-control">
+    </div>
+    <button class="btn btn-primary">
+        Agregar Producto
+    </button>
 </form>
+<?php
+include 'includes/footer.php';
+?>
