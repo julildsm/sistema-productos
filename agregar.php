@@ -10,8 +10,10 @@ $conexion = $database->conectar();
 $producto = new producto($conexion);
 $mensaje="";
 
-if ($_POST) {
-    $producto->crear(
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    var_dump($_POST);
+    
+   $resultado = $producto->crear(
         $_POST['nombre'],
         $_POST['descripion'],
         $_POST['precio'],
@@ -19,6 +21,8 @@ if ($_POST) {
     );
    if ($resultado){
       header("location: index.php");
+      exit();
+
    }else{
     $mesnaje="Error al agregar";
    }

@@ -61,7 +61,7 @@ class producto {
     public function eliminar($id){
     $sql = "DELETE FROM productos
             WHERE id = :id";
-    $stmt = $this->conn->prepare($sql);
+    $stmt = $this->conexion->prepare($sql);
     $stmt->bindParam(":id", $id);
     return $stmt->execute();
 
