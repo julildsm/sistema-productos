@@ -13,7 +13,26 @@
 
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
-        <span class="navbar-brand">Sistema de Productos</span>
+
+        <span class="navbar-brand">
+            Sistema de Productos
+        </span>
+
+        <?php if(isset($_SESSION['usuario'])): ?>
+
+            <div>
+                <span class="text-white me-3">
+                    Hola, <?= $_SESSION['usuario'] ?>
+                </span>
+
+                <a href="logout.php"
+                   class="btn btn-danger btn-sm">
+                   Cerrar sesión
+                </a>
+            </div>
+
+        <?php endif; ?>
+
     </div>
 </nav>
 
