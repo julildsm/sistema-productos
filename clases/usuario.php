@@ -38,7 +38,7 @@ class usuario{
         if($usuario){
 
             if(password_verify($password, $usuario['password'])){
-
+                $_SESSION['usuario'] = $usuario['nombre'];
                 return true;
 
             }
