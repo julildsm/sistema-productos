@@ -16,7 +16,8 @@ if($_POST){
         $_POST['precio'],
         $_POST['stock']
     );
-    header("Location: productos.php");
+    header("Location: index.php");
+    exit();
 }
 
 include 'includes/header.php';

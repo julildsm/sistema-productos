@@ -36,7 +36,7 @@ class producto {
 
     public function obtenerProducto($id){
         $sql = "SELECT * FROM productos WHERE id = :id";
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->conexion->prepare($sql);
         $stmt->bindParam(":id", $id);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -50,7 +50,7 @@ class producto {
                     stock = :stock
                 WHERE id = :id";
                 
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->conexion->prepare($sql);
         $stmt->bindParam(":id", $id);
         $stmt->bindParam(":nombre", $nombre);
         $stmt->bindParam(":descripcion", $descripcion);
