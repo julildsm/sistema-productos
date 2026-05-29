@@ -10,24 +10,21 @@ $conexion = $database->conectar();
 $producto = new producto($conexion);
 $productos = $producto->listar();
 
-if($conexion){
-
-    echo "Conexión exitosa";
-
-}else{
-
-    echo "Error";
-
-}
+include 'includes/header.php';
 ?>
 
-<h1>Productos</h1>
+<h2>Productos</h2>
 
-<a href="agregar.php">Agregar</a>
+<a href="agregar.php" class="btn btn-primary mb-3">
+    Agregar
+</a>
 
-<a href="logout.php">Cerrar sesión</a>
 
-<table border="1">
+<a href="logout.php" class="btn btn-danger mb-3">
+    Cerrar sesión
+</a>
+
+<table class="table table-bordered">
 
 <tr>
     <th>ID</th>
@@ -50,13 +47,22 @@ if($conexion){
     <td><?= $row['stock'] ?></td>
 
     <td>
-        <a href="editar.php?id=<?= $row['id'] ?>">Editar</a>
 
-        <a href="eliminar.php?id=<?= $row['id'] ?>">Eliminar</a>
+        <a href="editar.php?id=<?= $row['id'] ?>"
+           class="btn btn-warning">
+           Editar
+        </a>
+        <a href="eliminar.php?id=<?= $row['id'] ?>"
+           class="btn btn-danger">
+           Eliminar
+        </a>
+
     </td>
-
 </tr>
 
 <?php endwhile; ?>
 
 </table>
+<?php
+include 'includes/footer.php';
+?>
